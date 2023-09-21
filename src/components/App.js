@@ -63,7 +63,7 @@ export class App extends Component {
   };
 
   render() {
-    const { name, number, contacts } = this.state;
+    const { name, number } = this.state;
 
     return (
       <Layout>
