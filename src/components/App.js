@@ -3,17 +3,11 @@ import { nanoid } from 'nanoid';
 import { ContactList } from './ContactList';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Layout } from './Layout';
-
+import { Filter } from './Filter';
 export class App extends Component {
   state = {
     contacts: [],
     filter: '',
-    name: '',
-    number: '',
-  };
-
-  handleNameChange = event => {
-    this.setState({ name: event.target.value });
   };
 
   handleAddContact = () => {
@@ -34,10 +28,6 @@ export class App extends Component {
       name: '',
       number: '',
     }));
-  };
-
-  handleNumberChange = event => {
-    this.setState({ number: event.target.value });
   };
 
   handleFilterChange = event => {
@@ -76,12 +66,9 @@ export class App extends Component {
           onAddContact={this.handleAddContact}
         />
         <h2>Find contacts by name</h2>
-        <input
-          type="text"
-          name="filter"
+        <Filter
           value={this.state.filter}
-          onChange={this.handleFilterChange}
-          placeholder="Search contacts"
+          onFilterChange={this.handleFilterChange}
         />
         <h3>Contacts</h3>
         <ContactList
